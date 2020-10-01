@@ -1,7 +1,7 @@
 @extends(env('THEME') . '.layouts.site')
 
 @section('slider')
-    @include(env('THEME') . '.slider')
+    {!! $slider !!}
 @endsection
 
 @section('content')

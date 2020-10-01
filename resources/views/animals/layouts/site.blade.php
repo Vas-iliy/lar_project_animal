@@ -63,20 +63,9 @@
 @yield('slider')
 <!-- END slider -->
 
-@yield('dog')
-
-<!-- START people -->
-@yield('people')
-<!-- END people -->
-
-@yield('dogs')
-<!-- END section -->
-
-@yield('articles')
-
+@yield('content')
 
 @yield('footer')
-<!-- END footer -->
 
 <!-- loader -->
 <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>

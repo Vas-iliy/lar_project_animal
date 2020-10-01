@@ -15,6 +15,9 @@ class CreateDogsTable extends Migration
     {
         Schema::create('dogs', function (Blueprint $table) {
             $table->id();
+            $table->string('breed');
+            $table->text('descr');
+            $table->string('img');
             $table->timestamps();
         });
     }

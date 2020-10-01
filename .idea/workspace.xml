@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed53bea-83fb-43e1-be05-ca0ae6ebad89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/SliderRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/animals/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/animals/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/animals/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/animals/slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/animals/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/animals/home/content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/animals/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/animals/home/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +183,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_progect_animals\resources\views\animals\home" />
       <recent name="D:\server\OpenServer\domains\lar_progect_animals\resources\views\animals\layouts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -208,7 +209,7 @@
       <updated>1601331288458</updated>
       <workItem from="1601331297707" duration="633000" />
       <workItem from="1601413189169" duration="24000" />
-      <workItem from="1601571905979" duration="8630000" />
+      <workItem from="1601571905979" duration="9445000" />
     </task>
     <servers />
   </component>

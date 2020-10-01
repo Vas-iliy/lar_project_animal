@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include(env('THEME') . '.content')
+    @include(env('THEME') . '.home.content')
 @endsection
 
 @section('footer')

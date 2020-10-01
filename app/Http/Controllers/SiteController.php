@@ -16,6 +16,7 @@ class SiteController extends Controller
     protected $c_rep;
 
     protected $template;
+    protected $one_page;
     protected $vars = [];
 
 

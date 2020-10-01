@@ -13,7 +13,8 @@ class IndexController extends SiteController
     {
         parent::__construct(new \App\Repositories\MenuRepository(new \App\Menu));
 
-        $this->template = env('THEME') . '.index';
+        $this->one_page = '.home';
+        $this->template = env('THEME') . $this->one_page . '.index';
 
         $this->s_rep = $s_rep;
 

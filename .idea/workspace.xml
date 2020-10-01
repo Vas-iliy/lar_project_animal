@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed53bea-83fb-43e1-be05-ca0ae6ebad89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/MenuRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/animals/site.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_01_171728_create_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_01_171728_create_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_01_171815_create_articles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_01_171815_create_articles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_01_171857_create_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_01_171857_create_people_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_01_172235_create_dogs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_01_172235_create_dogs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,12 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="lar_project_animals: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -153,7 +159,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1i9skmLTgHXUWzQiOwlO2JPgn7Q" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -197,7 +205,7 @@
       <updated>1601331288458</updated>
       <workItem from="1601331297707" duration="633000" />
       <workItem from="1601413189169" duration="24000" />
-      <workItem from="1601571905979" duration="1803000" />
+      <workItem from="1601571905979" duration="3626000" />
     </task>
     <servers />
   </component>
@@ -217,10 +225,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="211" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1601572239887" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601571945185">
+    <state x="870" y="230" key="NewPhpClassDialog" timestamp="1601575246512">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601571945185" />
+    <state x="870" y="230" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1601575246512" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1601575547645">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1601575547645" />
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1601572262048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

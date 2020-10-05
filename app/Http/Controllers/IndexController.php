@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PeopleRepository;
 use App\Repositories\SliderRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -9,7 +10,7 @@ use Illuminate\Support\Arr;
 class IndexController extends SiteController
 {
 
-    public function __construct(SliderRepository $s_rep)
+    public function __construct(SliderRepository $s_rep, PeopleRepository $p_rep)
     {
         parent::__construct(new \App\Repositories\MenuRepository(new \App\Menu));
 
@@ -17,6 +18,7 @@ class IndexController extends SiteController
         $this->template = env('THEME') . $this->one_page . '.index';
 
         $this->s_rep = $s_rep;
+        $this->p_rep = $p_rep;
 
     }
 
@@ -25,6 +27,11 @@ class IndexController extends SiteController
         $slider = view(env('THEME') . '.slider', compact('slider_content'))->render();
         $this->vars = Arr::add($this->vars, 'slider', $slider);
 
+        $people = $this->getPeople();
+
+        $content = view(env('THEME') . $this->one_page . '.content', compact(['people']))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
         return $this->renderOutput();
     }
 
@@ -32,5 +39,11 @@ class IndexController extends SiteController
         $slider_content = $this->s_rep->get('*');
 
         return $slider_content;
+    }
+
+    public function getPeople() {
+        $people = $this->p_rep->get('*');
+
+        return $people;
     }
 }

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @include(env('THEME') . '.home.content')
+    {!! $content !!}
 @endsection
 
 @section('footer')

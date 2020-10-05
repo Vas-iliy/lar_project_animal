@@ -25,6 +25,7 @@
     </div>
 </section>
 
+@if($people)
 <section class="section bg-light">
     <div class="container">
         <div class="row justify-content-center mb-5 element-animate">
@@ -35,43 +36,21 @@
         </div>
         <div class="row element-animate">
             <div class="major-caousel js-carousel-1 owl-carousel">
-                <div>
-                    <div class="media d-block media-custom text-center">
-                        <a href="adoption-single.html"><img src="img/person_1.jpg" alt="Image Placeholder" class="img-fluid"></a>
-                        <div class="media-body">
-                            <h3 class="mt-0 text-black">Mellisa Howard</h3>
+                @foreach($people as $person)
+                    <div>
+                        <div class="media d-block media-custom text-center">
+                            <a href="adoption-single.html"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
+                            <div class="media-body">
+                                <h3 class="mt-0 text-black">{{$person->name}}</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="media d-block media-custom text-center">
-                        <a href="adoption-single.html"><img src="img/person_2.jpg" alt="Image Placeholder" class="img-fluid"></a>
-                        <div class="media-body">
-                            <h3 class="mt-0 text-black">Mike Richardson</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="media d-block media-custom text-center">
-                        <a href="adoption-single.html"><img src="img/person_3.jpg" alt="Image Placeholder" class="img-fluid"></a>
-                        <div class="media-body">
-                            <h3 class="mt-0 text-black">Charles White</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="media d-block media-custom text-center">
-                        <a href="adoption-single.html"><img src="img/person_4.jpg" alt="Image Placeholder" class="img-fluid"></a>
-                        <div class="media-body">
-                            <h3 class="mt-0 text-black">Laura Smith</h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <!-- END slider -->
         </div>
     </div>
 </section>
+@endif
 <!-- END section -->
 
 <section class="section border-t">

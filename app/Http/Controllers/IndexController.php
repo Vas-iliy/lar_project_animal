@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\DogRepository;
 use App\Repositories\PeopleRepository;
 use App\Repositories\SliderRepository;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ use Illuminate\Support\Arr;
 class IndexController extends SiteController
 {
 
-    public function __construct(SliderRepository $s_rep, PeopleRepository $p_rep)
+    public function __construct(SliderRepository $s_rep, PeopleRepository $p_rep, DogRepository $d_rep)
     {
         parent::__construct(new \App\Repositories\MenuRepository(new \App\Menu));
 
@@ -19,6 +20,7 @@ class IndexController extends SiteController
 
         $this->s_rep = $s_rep;
         $this->p_rep = $p_rep;
+        $this->d_rep = $d_rep;
 
     }
 
@@ -28,8 +30,9 @@ class IndexController extends SiteController
         $this->vars = Arr::add($this->vars, 'slider', $slider);
 
         $people = $this->getPeople();
+        $dogs = $this->getDogs(config('settings.col_dogs'));
 
-        $content = view(env('THEME') . $this->one_page . '.content', compact(['people']))->render();
+        $content = view(env('THEME') . $this->one_page . '.content', compact(['people', 'dogs']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
@@ -45,5 +48,11 @@ class IndexController extends SiteController
         $people = $this->p_rep->get('*');
 
         return $people;
+    }
+
+    public function getDogs($take) {
+        $dogs = $this->d_rep->get('*', $take);
+
+        return $dogs;
     }
 }

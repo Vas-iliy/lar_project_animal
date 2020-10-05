@@ -20,9 +20,9 @@ class Repository
             $builder->where($where[0], $where[1]);
         }
 
-        if ($pagination) {
+        /*if ($pagination) {
             $builder->paginate(6);
-        }
+        }*/
 
         return $builder->get();
     }

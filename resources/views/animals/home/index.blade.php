@@ -1,5 +1,9 @@
 @extends(env('THEME') . '.layouts.site')
 
+@section('menu')
+    @include(env('THEME') . '.menu')
+@endsection
+
 @section('slider')
     {!! $slider !!}
 @endsection

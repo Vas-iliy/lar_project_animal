@@ -1,3 +1,4 @@
+@if($dog)
 <section class="section element-animate">
     <div class="container">
         <div class="row justify-content-center mb-5">
@@ -9,21 +10,15 @@
         </div>
         <div class="row">
             <div class="col-md-4 mb-4">
-                <img src="img/dog_1.jpg" alt="Image placeholder" class="img-fluid">
+                <img src="{{asset(env('THEME'))}}/img/{{$dog->img}}" alt="Image placeholder" class="img-fluid">
             </div>
-            <div class="col-md-4">
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-            </div>
-            <div class="col-md-4">
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p><a href="#">Learn More <span class="ion-ios-arrow-right"></span></a></p>
+            <div class="col-md-8">
+                {!! $dog->text !!}
             </div>
         </div>
     </div>
 </section>
+@endif
 
 @if($people)
 <section class="section bg-light">

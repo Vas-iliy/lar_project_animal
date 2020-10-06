@@ -12,28 +12,29 @@
                 </ul>
 
             </div>
-            <div class="col-md-5 mb-5">
-                <h3>Contact Info</h3>
-                <ul class="list-unstyled footer-link">
-                    <li class="d-block">
-                        <span class="d-block">Address:</span>
-                        <span class="text-white">34 Street Name, City Name Here, United States</span></li>
-                    <li class="d-block"><span class="d-block">Telephone:</span><span class="text-white">+1 242 4942 290</span></li>
-                    <li class="d-block"><span class="d-block">Email:</span><span class="text-white">info@yourdomain.com</span></li>
-                </ul>
-            </div>
-            <div class="col-md-3 mb-5">
-                <h3>Quick Links</h3>
-                <ul class="list-unstyled footer-link">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Disclaimers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-
-            </div>
+            @if($contacts)
+                <div class="col-md-5 mb-5">
+                    <h3>Contact Info</h3>
+                    <ul class="list-unstyled footer-link">
+                        @foreach($contacts as $contact)
+                            <li class="d-block">
+                                <span class="d-block">{{$contact->icon}}</span>
+                                <span class="text-white">{{$contact->descr}}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if($menus)
+                <div class="col-md-3 mb-5">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled footer-link">
+                        @foreach($menus as $m)
+                            <li><a href="{{$m->path}}">{{$m->page}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <div class="row">
             <div class="col-12 text-md-center text-left">

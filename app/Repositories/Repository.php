@@ -30,4 +30,10 @@ class Repository
         return $builder->get();
     }
 
+    public function one($items) {
+        $result = $this->model->where($items[0], $items[1])->first();
+
+        return $result;
+    }
+
 }

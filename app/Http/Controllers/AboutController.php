@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\ArticlesRepository;
 use App\Repositories\DogRepository;
-use App\Repositories\MenuRepository;
 use App\Repositories\PeopleRepository;
-use App\Repositories\SliderAboutRepository;
 use App\Repositories\SliderRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class AboutController extends SiteController
 {
-    public function __construct(SliderAboutRepository $s_rep, DogRepository $d_rep, PeopleRepository $p_rep)
+    public function __construct(SliderRepository $s_rep, DogRepository $d_rep, PeopleRepository $p_rep)
     {
         parent::__construct(new \App\Repositories\MenuRepository(new \App\Menu), new \App\Repositories\ContactsRepository(new \App\Contact));
 
@@ -22,11 +18,12 @@ class AboutController extends SiteController
 
         $this->d_rep = $d_rep;
         $this->p_rep = $p_rep;
-        $this->about_s_rep = $s_rep;
+        $this->s_rep = $s_rep;
     }
 
     public function index() {
-        $content_slider = $this->getSlider();
+        $where = ['page', 'about'];
+        $content_slider = $this->getSlider($where);
         $slider = view(env('THEME') . $this->one_page . '.slider', compact('content_slider'))->render();
         $this->vars = Arr::add($this->vars, 'slider', $slider);
 
@@ -39,8 +36,8 @@ class AboutController extends SiteController
         return $this->renderOutput();
     }
 
-    public function getSlider() {
-        $slider = $this->about_s_rep->get('*');
+    public function getSlider($where) {
+        $slider = $this->s_rep->get('*', false, false, $where);
 
         return $slider;
     }

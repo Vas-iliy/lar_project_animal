@@ -4,11 +4,11 @@
 namespace App\Repositories;
 
 
-use App\Slider;
+use App\Page;
 
 class SliderRepository extends Repository
 {
-     public function __construct(Slider $slider)
+     public function __construct(Page $slider)
      {
          $this->model = $slider;
      }

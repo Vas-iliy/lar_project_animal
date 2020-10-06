@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
 use App\Repositories\ArticlesRepository;
-use App\Repositories\ContactsRepository;
 use App\Repositories\DogRepository;
-use App\Repositories\MenuRepository;
 use App\Repositories\PeopleRepository;
 use App\Repositories\SliderRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class IndexController extends SiteController
@@ -26,12 +22,11 @@ class IndexController extends SiteController
         $this->p_rep = $p_rep;
         $this->d_rep = $d_rep;
         $this->a_rep = $a_rep;
-        $this->c_rep = $c_rep;
-
     }
 
     public function index() {
-        $slider_content = $this->getSlider();
+        $where = ['page', 'home'];
+        $slider_content = $this->getSlider($where);
         $slider = view(env('THEME') . $this->one_page . '.slider', compact('slider_content'))->render();
         $this->vars = Arr::add($this->vars, 'slider', $slider);
 
@@ -48,8 +43,8 @@ class IndexController extends SiteController
         return $this->renderOutput();
     }
 
-    public function getSlider() {
-        $slider_content = $this->s_rep->get('*');
+    public function getSlider($where) {
+        $slider_content = $this->s_rep->get('*', false, false, $where);
 
         return $slider_content;
     }

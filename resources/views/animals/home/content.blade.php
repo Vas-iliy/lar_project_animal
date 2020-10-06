@@ -79,7 +79,7 @@
 </section>
 @endif
 <!-- END section -->
-
+@if($articles)
 <section class="section blog">
     <div class="container">
 
@@ -91,41 +91,28 @@
         </div>
 
         <div class="row">
+            @foreach($articles as $k=>$article)
+                @if(($k/2 != 1))
             <div class="col-md-6">
-
+                @endif
                 <div class="media mb-4 d-md-flex d-block element-animate">
-                    <a href="#" class="mr-5"><img src="img/blog_1.jpg" alt="Placeholder image" class="img-fluid"></a>
+                    <a href="#" class="mr-5"><img src="{{asset(env('THEME'))}}/img/{{$article->img}}" alt="Placeholder image" class="img-fluid"></a>
                     <div class="media-body">
-                        <span class="post-meta">Feb 26th, 2018</span>
-                        <h3 class="mt-2 text-black"><a href="#">How to Train Your Dog</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam minus ipsa earum nemo consectetur cupiditate necessitatibus suscipit assumenda perspiciatis provident.</p>
+                        @if($article->created_at)
+                            <span class="post-meta">{{$article->created_at->format('F d, Y')}}</span>
+                        @endif
+                        <h3 class="mt-2 text-black"><a href="#">{{$article->title}}</a></h3>
+                        @if($k == 0 || $k > 2)
+                            <p>{{\Illuminate\Support\Str::limit($article->descr, 100)}}</p>
+                        @endif
                         <p><a href="#" class="btn btn-primary btn-sm">Read more</a></p>
                     </div>
                 </div>
-
-
-
+                @if($k/1 != 1)
             </div>
-            <div class="col-md-6">
-                <div class="media mb-4 d-md-flex d-block element-animate">
-                    <a href="#" class="mr-5"><img src="img/blog_2.jpg" alt="Placeholder image" class="img-fluid"></a>
-                    <div class="media-body">
-                        <span class="post-meta">Feb 26th, 2018</span>
-                        <h3 class="mt-2 text-black"><a href="#">Find The Right Food For Your Dogs</a></h3>
-                        <p><a href="#" class="btn btn-primary btn-sm">Read more</a></p>
-                    </div>
-                </div>
-
-                <div class="media mb-4 d-md-flex d-block element-animate">
-                    <a href="#" class="mr-5"><img src="img/blog_3.jpg" alt="Placeholder image" class="img-fluid"></a>
-                    <div class="media-body">
-                        <span class="post-meta">Feb 26th, 2018</span>
-                        <h3 class="mt-2 text-black"><a href="#">Dog's Affections To Owner</a></h3>
-                        <p><a href="#" class="btn btn-primary btn-sm">Read more</a></p>
-                    </div>
-                </div>
-
-            </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </section>
+@endif

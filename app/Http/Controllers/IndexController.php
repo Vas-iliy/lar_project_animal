@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ArticlesRepository;
 use App\Repositories\DogRepository;
 use App\Repositories\PeopleRepository;
 use App\Repositories\SliderRepository;
@@ -11,7 +12,7 @@ use Illuminate\Support\Arr;
 class IndexController extends SiteController
 {
 
-    public function __construct(SliderRepository $s_rep, PeopleRepository $p_rep, DogRepository $d_rep)
+    public function __construct(SliderRepository $s_rep, PeopleRepository $p_rep, DogRepository $d_rep, ArticlesRepository $a_rep)
     {
         parent::__construct(new \App\Repositories\MenuRepository(new \App\Menu));
 
@@ -21,6 +22,7 @@ class IndexController extends SiteController
         $this->s_rep = $s_rep;
         $this->p_rep = $p_rep;
         $this->d_rep = $d_rep;
+        $this->a_rep = $a_rep;
 
     }
 
@@ -32,7 +34,10 @@ class IndexController extends SiteController
         $people = $this->getPeople();
         $dogs = $this->getDogs(config('settings.col_dogs'));
 
-        $content = view(env('THEME') . $this->one_page . '.content', compact(['people', 'dogs']))->render();
+        $order = ['id', 'desc'];
+        $articles = $this->getArticles(config('settings.col_articles'), $order);
+
+        $content = view(env('THEME') . $this->one_page . '.content', compact(['people', 'dogs', 'articles']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
@@ -54,5 +59,11 @@ class IndexController extends SiteController
         $dogs = $this->d_rep->get('*', $take);
 
         return $dogs;
+    }
+
+    public function getArticles($take, $order) {
+        $articles = $this->a_rep->get('*', $take, false, false, $order);
+
+        return $articles;
     }
 }

@@ -14,6 +14,7 @@
             </div>
             <div class="col-md-8">
                 {!! $dog->text !!}
+                <p><a href="{{route('blog.show', ['alias' => $dog->id])}}">Learn More <span class="ion-ios-arrow-right"></span></a></p>
             </div>
         </div>
     </div>
@@ -61,7 +62,7 @@
         <div class="row no-gutters">
             @foreach($dogs as $dog)
                 <div class="col-md-4 element-animate">
-                    <a href="single.html" class="link-thumbnail">
+                    <a href="{{route('dogs.show', ['alias' => $dog->breed])}}" class="link-thumbnail">
                         <h3>{{$dog->breed}}</h3>
                         <span class="ion-plus icon"></span>
                         <img src="{{asset(env('THEME'))}}/img/{{$dog->img}}" alt="Image placeholder" class="img-fluid">
@@ -100,7 +101,7 @@
                         @if($k == 0 || $k > 2)
                             <p>{{\Illuminate\Support\Str::limit($article->descr, 100)}}</p>
                         @endif
-                        <p><a href="#" class="btn btn-primary btn-sm">Read more</a></p>
+                        <p><a href="{{route('blog.show', ['alias' => $article->id])}}" class="btn btn-primary btn-sm">Read more</a></p>
                     </div>
                 </div>
                 @if($k/1 != 1)

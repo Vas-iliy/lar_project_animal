@@ -6,7 +6,7 @@
         <div class="text text-center element-animate">
             <h3 class="mb-4">{{$dog->breed}}</h3>
             <p class="mb-5">{!! \Illuminate\Support\Str::limit($dog->text, 150) !!}</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>
+            <p><a href="{{route('dogs.show', ['alias' => $dog->breed])}}" class="btn btn-primary btn-sm">Learn More</a></p>
         </div>
     </div>
     @endforeach

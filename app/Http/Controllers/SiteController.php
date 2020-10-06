@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\ContactsRepository;
 use App\Repositories\MenuRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\URL;
 
 class SiteController extends Controller
 {

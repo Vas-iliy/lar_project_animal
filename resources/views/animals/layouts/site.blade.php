@@ -31,6 +31,22 @@
 @yield('slider')
 <!-- END slider -->
 
+@if(isset($errors))
+    <div style="background-color:red; text-align: center;" >
+        <ul>
+            @foreach($errors->all() as $error)
+                <li style="list-style-type: none"><h3>{{$error}}</h3></li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if(session('status'))
+    <div style="background-color: green; text-align: center;">
+        {{session('status')}}
+    </div>
+@endif
+
 @yield('content')
 
 @yield('footer')

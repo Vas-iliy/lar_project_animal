@@ -18,7 +18,7 @@
                     <ul class="list-unstyled footer-link">
                         @foreach($contacts as $contact)
                             <li class="d-block">
-                                <span class="d-block">{{$contact->icon}}</span>
+                                <span class="d-block">{{$contact->title}}</span>
                                 <span class="text-white">{{$contact->descr}}</span>
                             </li>
                         @endforeach

@@ -1,15 +1,14 @@
-<section class="one-breed">
-    <div class="container">
+@if($dog)
+<section style="background-color: #262626;" class="one-breed">
+    <div style="margin-top: 50px;" class="container">
         <div class="card card-breed card-one-breed">
-            <img src="" alt="">
+            <img style="width: 100%" src="{{asset(env('THEME'))}}/img/{{$dog->img}}" alt="">
             <div class="card-body">
-                <h3 class="card-title"></h3>
-                <p class="card-text"></p>
-                <div>
-                    <a href=""></a>
-                    <a href=""></a>
-                </div>
+                <h1 class="card-title">{{$dog->title}}</h1>
+                <p class="card-text">{!! $dog->text !!}</p>
+                <a href="{{route('breed.index')}}">Go Back</a>
             </div>
         </div>
     </div>
 </section>
+@endif

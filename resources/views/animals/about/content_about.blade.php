@@ -6,7 +6,7 @@
         <div class="text text-center element-animate">
             <h3 class="mb-4">{{$dog->breed}}</h3>
             <p class="mb-5">{!! \Illuminate\Support\Str::limit($dog->text, 150) !!}</p>
-            <p><a href="{{route('breed.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '', $dog->breed)])}}" class="btn btn-primary btn-sm">Learn More</a></p>
+            <p><a href="{{route('breed.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $dog->breed)])}}" class="btn btn-primary btn-sm">Learn More</a></p>
         </div>
     </div>
     @endforeach
@@ -28,7 +28,7 @@
                     @foreach($people as $person)
                         <div>
                             <div class="media d-block media-custom text-center">
-                                <a href="{{route('people.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '', $person->name)])}}"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
+                                <a href="{{route('people.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $person->name)])}}"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
                                 <div class="media-body">
                                     <h3 class="mt-0 text-black">{{$person->name}}</h3>
                                 </div>

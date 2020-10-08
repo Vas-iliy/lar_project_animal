@@ -66,7 +66,7 @@
                 @foreach($people as $person)
                     <div>
                         <div class="media d-block media-custom text-center">
-                            <a href="{{route('people.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '', $person->name)])}}"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
+                            <a href="{{route('people.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $person->name)])}}"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
                             <div class="media-body">
                                 <h3 class="mt-0 text-black">{{$person->name}} <em>{{$person->profession}}</em></h3>
                                 <p>{{\Illuminate\Support\Str::limit($person->descr, 150)}}</p>

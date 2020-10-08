@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Dog;
 use App\Repositories\ContactsRepository;
 use App\Repositories\DogRepository;
 use App\Repositories\MenuRepository;
 use App\Repositories\PeopleRepository;
 use App\Repositories\SliderRepository;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class DogsController extends SiteController
 {
@@ -45,10 +47,19 @@ class DogsController extends SiteController
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($alias)
     {
-        //
+        if (Str::contains($alias, '-')) {
+            $alias = Str::replaceFirst('-', ' ', $alias);
+        }
+        $where = ['breed', $alias];
+        $dog = $this->d_rep->one($where);
+        $content = view(env('THEME') . $this->one_page . '.content_oneBreed', compact('dog'))->render();
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 }

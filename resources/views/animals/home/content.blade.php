@@ -35,7 +35,7 @@
                 @foreach($people as $person)
                     <div>
                         <div class="media d-block media-custom text-center">
-                            <a href="adoption-single.html"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
+                            <a href="{{route('people.show', ['alias', \Illuminate\Support\Str::replaceFirst(' ', '', $person->name)])}}"><img src="{{asset(env('THEME'))}}/img/{{$person->img}}" alt="Image Placeholder" class="img-fluid"></a>
                             <div class="media-body">
                                 <h3 class="mt-0 text-black">{{$person->name}}</h3>
                             </div>
@@ -62,7 +62,7 @@
         <div class="row no-gutters">
             @foreach($dogs as $dog)
                 <div class="col-md-4 element-animate">
-                    <a href="{{route('breed.show', ['alias' => $dog->breed])}}" class="link-thumbnail">
+                    <a href="{{route('breed.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ','', $dog->breed)])}}" class="link-thumbnail">
                         <h3>{{$dog->breed}}</h3>
                         <span class="ion-plus icon"></span>
                         <img src="{{asset(env('THEME'))}}/img/{{$dog->img}}" alt="Image placeholder" class="img-fluid">

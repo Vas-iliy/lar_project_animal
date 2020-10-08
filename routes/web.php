@@ -20,5 +20,6 @@ Route::get('/about', 'AboutController@index')->name('about');
 Route::resource('blog', 'ArticleController')->parameters(['blog' => 'alias']);
 Route::resource('breed', 'DogsController')->parameters(['breed' => 'alias']);
 Route::resource('people', 'PeopleController')->parameters(['people' => 'alias']);
+
 Route::get('/contact', 'ContactController@index')-> name('contact');
 Route::post('/contact', 'ContactController@mail');

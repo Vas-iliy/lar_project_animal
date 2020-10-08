@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <h3 class="card-title">{{$dog->breed}}</h3>
                         <p class="card-text">{!! \Illuminate\Support\Str::limit($dog->text, 150) !!}</p>
-                        <a href="{{route('breed.show', ['alias' => $dog->breed])}}" class="btn btn-primary">Read More</a>
+                        <a href="{{route('breed.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '', $dog->breed)])}}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>

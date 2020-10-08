@@ -27,7 +27,7 @@ class IndexController extends SiteController
     public function index() {
         $where = ['page', 'home'];
         $slider_content = $this->getSlider($where);
-        $slider = view(env('THEME') . $this->one_page . '.slider', compact('slider_content'))->render();
+        $slider = view(env('THEME')  . '.slider', compact('slider_content'))->render();
         $this->vars = Arr::add($this->vars, 'slider', $slider);
 
         $dog = $this->d_rep->one(['breed', 'German Shepherd']);

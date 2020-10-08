@@ -18,4 +18,5 @@ Route::get('/', 'IndexController@index')->name('home');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::resource('blog', 'ArticleController')->parameters(['blog' => 'alias']);
-Route::resource('dogs', 'DogsController')->parameters(['dogs' => 'alias']);
+Route::resource('breed', 'DogsController')->parameters(['breed' => 'alias']);
+Route::resource('people', 'PeopleController')->parameters(['people' => 'alias']);

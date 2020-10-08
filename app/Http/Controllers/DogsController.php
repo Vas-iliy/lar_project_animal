@@ -2,39 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ContactsRepository;
+use App\Repositories\DogRepository;
+use App\Repositories\MenuRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class DogsController extends SiteController
 {
+    public function __construct(MenuRepository $m_rep, ContactsRepository $c_rep, DogRepository $d_rep)
+    {
+        parent::__construct($m_rep, $c_rep);
+
+        $this->one_page = '.breed';
+        $this->template = env('THEME') . $this->one_page . '.breed';
+
+        $this->d_rep = $d_rep;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $dogs = $this->getDogs();
+        $content = view(env('THEME') . $this->one_page . '.content_breed', compact('dogs'));
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function getDogs() {
+        $dogs = $this->d_rep->get('*');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return $dogs;
     }
 
     /**
@@ -44,40 +48,6 @@ class DogsController extends SiteController
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }

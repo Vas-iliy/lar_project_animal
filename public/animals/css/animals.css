@@ -1,0 +1,15 @@
+.breed > .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+}
+.col_breed {
+    width: 50%;
+    padding: 15px 15px;
+}
+.card-breed {
+}
+.card-breed > a > img {
+    min-width: 100%;
+}

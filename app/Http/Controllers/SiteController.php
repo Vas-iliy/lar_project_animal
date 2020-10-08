@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\ContactsRepository;
+use App\Repositories\DogRepository;
 use App\Repositories\MenuRepository;
+use App\Repositories\PeopleRepository;
+use App\Repositories\SliderRepository;
 use Illuminate\Support\Arr;
 
 class SiteController extends Controller
@@ -20,10 +23,13 @@ class SiteController extends Controller
     protected $vars = [];
 
 
-    public function __construct(MenuRepository $m_rep, ContactsRepository $c_rep)
+    public function __construct(MenuRepository $m_rep, ContactsRepository $c_rep, PeopleRepository $p_rep, SliderRepository $s_rep, DogRepository $d_rep)
     {
         $this->m_rep = $m_rep;
         $this->c_rep = $c_rep;
+        $this->p_rep = $p_rep;
+        $this->s_rep = $s_rep;
+        $this->d_rep = $d_rep;
     }
 
     protected function renderOutput()
@@ -68,5 +74,23 @@ class SiteController extends Controller
         $menu = $this->m_rep->get('*', false, false, $where);
 
         return $menu;
+    }
+
+    public function getPeople() {
+        $people = $this->p_rep->get('*');
+
+        return $people;
+    }
+
+    public function getSlider($where) {
+        $slider = $this->s_rep->get('*', false, false, $where);
+
+        return $slider;
+    }
+
+    public function getDogs($take) {
+        $dogs = $this->d_rep->get('*', $take);
+
+        return $dogs;
     }
 }

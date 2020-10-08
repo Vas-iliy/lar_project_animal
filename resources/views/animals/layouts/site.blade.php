@@ -18,6 +18,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/style.css">
+    <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/animals.css">
 </head>
 <body>
 

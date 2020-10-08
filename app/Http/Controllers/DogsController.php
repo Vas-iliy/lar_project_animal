@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Repositories\ContactsRepository;
 use App\Repositories\DogRepository;
 use App\Repositories\MenuRepository;
-use Illuminate\Http\Request;
+use App\Repositories\PeopleRepository;
+use App\Repositories\SliderRepository;
 use Illuminate\Support\Arr;
 
 class DogsController extends SiteController
 {
-    public function __construct(MenuRepository $m_rep, ContactsRepository $c_rep, DogRepository $d_rep)
+    public function __construct(MenuRepository $m_rep, ContactsRepository $c_rep, DogRepository $d_rep, PeopleRepository $p_rep, SliderRepository $s_rep)
     {
-        parent::__construct($m_rep, $c_rep);
+        parent::__construct($m_rep, $c_rep, $p_rep, $s_rep, $d_rep);
 
         $this->one_page = '.breed';
         $this->template = env('THEME') . $this->one_page . '.breed';
@@ -27,18 +28,17 @@ class DogsController extends SiteController
      */
     public function index()
     {
-        $dogs = $this->getDogs();
+        $where = ['page', 'breed'];
+        $slider_content = $this->getSlider($where);
+        $slider = view(env('THEME') . '.slider', compact('slider_content'))->render();
+        $this->vars = Arr::add($this->vars, 'slider', $slider);
+
+        $dogs = $this->getDogs(false);
         $content = view(env('THEME') . $this->one_page . '.content_breed', compact('dogs'));
 
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
-    }
-
-    public function getDogs() {
-        $dogs = $this->d_rep->get('*');
-
-        return $dogs;
     }
 
     /**

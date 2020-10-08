@@ -11,5 +11,5 @@
 .card-breed {
 }
 .card-breed > a > img {
-    min-width: 100%;
+    width: 100%;
 }

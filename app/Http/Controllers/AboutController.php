@@ -32,7 +32,10 @@ class AboutController extends SiteController
         $dogs = $this->getDogs(config('settings.col_dogs_about'));
         $people = $this->getPeople();
 
-        $content = view(env('THEME') . $this->one_page . '.content_about', compact(['dogs', 'people']))->render();
+        $text = $this->getText($where);
+        $text = $text->text;
+
+        $content = view(env('THEME') . $this->one_page . '.content_about', compact(['dogs', 'people', 'text']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();

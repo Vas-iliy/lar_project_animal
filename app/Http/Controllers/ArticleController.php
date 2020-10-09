@@ -52,10 +52,16 @@ class ArticleController extends SiteController
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $id = (int)$id;
+        $where = ['id', $id];
+        $article = $this->a_rep->one($where);
+        $content = view(env('THEME') . $this->one_page . '.content_oneBlog', compact('article'));
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 }

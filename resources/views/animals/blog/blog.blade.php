@@ -5,7 +5,7 @@
 @endsection
 
 @section('slider')
-    {!! $slider !!}
+    {!! $slider ?? '' !!}
 @endsection
 
 @section('content')

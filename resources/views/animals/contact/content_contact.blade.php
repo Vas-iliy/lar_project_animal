@@ -55,12 +55,14 @@
 @if($people)
 <section class="section bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-            <div class="col-md-8 text-center">
-                <h2 class="text-uppercase heading mb-4">Testimonial</h2>
-                <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+        @if($text[0]->name == 'people')
+            <div class="row justify-content-center mb-5 element-animate">
+                <div class="col-md-8 text-center">
+                    <h2 class=" heading mb-4">{{$text[0]->title}}</h2>
+                    <p class="mb-5 lead">{{$text[0]->descr}}</p>
+                </div>
             </div>
-        </div>
+        @endif
         <div class="row element-animate">
             <div class="major-caousel js-carousel-1 owl-carousel">
                 @foreach($people as $person)

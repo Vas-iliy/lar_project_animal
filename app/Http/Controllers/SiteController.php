@@ -93,4 +93,12 @@ class SiteController extends Controller
 
         return $dogs;
     }
+
+    public function getText($where) {
+        $text = $this->m_rep->one($where);
+
+        $text->load('text');
+
+        return $text;
+    }
 }

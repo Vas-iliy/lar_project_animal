@@ -1,13 +1,15 @@
 @if($dog)
 <section class="section element-animate">
     <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-4"></div>
-            <div class="col-md-8 section-heading">
-                <h2>It's a Dog Life</h2>
-                <p class="small-sub-heading">Curious story of Dogs</p>
+        @if($text[0]->name == 'dog')
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-4"></div>
+                <div class="col-md-8 section-heading">
+                    <h2>{{$text[0]->title}}</h2>
+                    <p class="small-sub-heading">{{$text[0]->descr}}</p>
+                </div>
             </div>
-        </div>
+        @endif
         <div class="row">
             <div class="col-md-4 mb-4">
                 <img src="{{asset(env('THEME'))}}/img/{{$dog->img}}" alt="Image placeholder" class="img-fluid">
@@ -24,12 +26,14 @@
 @if($people)
 <section class="section bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-            <div class="col-md-8 text-center">
-                <h2 class=" heading mb-4">Every Dog Needs A Good Owner</h2>
-                <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+        @if($text[1]->name == 'people')
+            <div class="row justify-content-center mb-5 element-animate">
+                <div class="col-md-8 text-center">
+                    <h2 class=" heading mb-4">{{$text[1]->title}}</h2>
+                    <p class="mb-5 lead">{{$text[1]->descr}}</p>
+                </div>
             </div>
-        </div>
+        @endif
         <div class="row element-animate">
             <div class="major-caousel js-carousel-1 owl-carousel">
                 @foreach($people as $person)
@@ -52,12 +56,14 @@
 @if($dogs)
 <section class="section border-t">
     <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-            <div class="col-md-8 text-center">
-                <h2 class=" heading mb-4">Dog Breed Collections</h2>
-                <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+        @if($text[2]->name == 'breed')
+            <div class="row justify-content-center mb-5 element-animate">
+                <div class="col-md-8 text-center">
+                    <h2 class=" heading mb-4">{{$text[2]->title}}</h2>
+                    <p class="mb-5 lead">{{$text[2]->descr}}</p>
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="row no-gutters">
             @foreach($dogs as $dog)
@@ -79,12 +85,14 @@
 <section class="section blog">
     <div class="container">
 
-        <div class="row justify-content-center mb-5 element-animate">
-            <div class="col-md-8 text-center">
-                <h2 class=" heading mb-4">Recent Blog Post</h2>
-                <p class="mb-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+        @if($text[3]->name == 'blog')
+            <div class="row justify-content-center mb-5 element-animate">
+                <div class="col-md-8 text-center">
+                    <h2 class=" heading mb-4">{{$text[3]->title}}</h2>
+                    <p class="mb-5 lead">{{$text[3]->descr}}</p>
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="row">
             @foreach($articles as $k=>$article)

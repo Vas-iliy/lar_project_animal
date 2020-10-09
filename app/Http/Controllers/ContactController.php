@@ -31,7 +31,9 @@ class ContactController extends SiteController
 
         $contact = $this->getContacts();
         $people = $this->getPeople();
-        $content = view(env('THEME') . $this->one_page . '.content_contact', compact(['contact', 'people']))->render();
+        $text = $this->getText($where);
+        $text = $text->text;
+        $content = view(env('THEME') . $this->one_page . '.content_contact', compact(['contact', 'people', 'text']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();

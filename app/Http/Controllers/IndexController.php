@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Menu;
+use App\PagesText;
 use App\Repositories\ArticlesRepository;
 use App\Repositories\ContactsRepository;
 use App\Repositories\DogRepository;
@@ -39,7 +41,10 @@ class IndexController extends SiteController
         $order = ['id', 'desc'];
         $articles = $this->getArticles(config('settings.col_articles'), $order);
 
-        $content = view(env('THEME') . $this->one_page . '.content', compact(['dog', 'people', 'dogs', 'articles']))->render();
+        $text = $this->getText($where);
+        $text = $text->text;
+
+        $content = view(env('THEME') . $this->one_page . '.content', compact(['dog', 'people', 'dogs', 'articles', 'text']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
@@ -50,5 +55,7 @@ class IndexController extends SiteController
 
         return $articles;
     }
+
+
 
 }
